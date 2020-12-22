@@ -14,7 +14,6 @@ namespace Dflydev\EmbeddedComposer\Core;
 use Composer\Autoload\ClassLoader;
 use Composer\Config;
 use Composer\Factory;
-use Composer\Installer;
 use Composer\IO\IOInterface;
 use Composer\Package\AliasPackage;
 use Composer\Repository\RepositoryInterface;
@@ -78,7 +77,7 @@ class EmbeddedComposer implements EmbeddedComposerInterface
         $this->externalVendorDirectoryOverride = $externalVendorDirectoryOverride;
         $this->internalRepository = $internalRepository;
         $this->internalVendorDirectory = $internalVendorDirectory;
-        $this->hasInternalRepository = $hasInternalRepository;
+        $this->hasInternalRepository = $hasInternalRepository = true;
         $this->repository = $repository;
     }
 
@@ -152,7 +151,7 @@ class EmbeddedComposer implements EmbeddedComposerInterface
         $installer = Installer::create($io, $composer);
 
         if ($this->hasInternalRepository) {
-            $installer->setAdditionalInstalledRepository(
+            $installer->setAdditionalFixedRepository(
                 $this->internalRepository
             );
             $pluginManager = $composer->getPluginManager();
