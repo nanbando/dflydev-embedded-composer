@@ -124,7 +124,6 @@ class EmbeddedComposerBuilder
         $externalComposerConfig = Factory::createConfig();
 
         $configJsonFile = new JsonFile($externalComposerFilename);
-
         if ($configJsonFile->exists()) {
             try {
                 $configJsonFile->validateSchema(JsonFile::LAX_SCHEMA);
@@ -209,7 +208,6 @@ class EmbeddedComposerBuilder
             $externalRepository,
             $internalRepository
         ));
-
 
         return new EmbeddedComposer(
             $this->classLoader,

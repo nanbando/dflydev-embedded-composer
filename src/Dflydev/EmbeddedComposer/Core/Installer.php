@@ -13,4 +13,9 @@ class Installer extends \Composer\Installer
 
         return $repositorySet;
     }
+
+    public function getPackage()
+    {
+        return $this->package;
+    }
 }
