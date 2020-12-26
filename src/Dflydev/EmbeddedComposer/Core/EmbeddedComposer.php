@@ -77,7 +77,7 @@ class EmbeddedComposer implements EmbeddedComposerInterface
         $this->externalVendorDirectoryOverride = $externalVendorDirectoryOverride;
         $this->internalRepository = $internalRepository;
         $this->internalVendorDirectory = $internalVendorDirectory;
-        $this->hasInternalRepository = $hasInternalRepository = true;
+        $this->hasInternalRepository = $hasInternalRepository;
         $this->repository = $repository;
     }
 
