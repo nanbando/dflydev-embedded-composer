@@ -1,3 +1,4 @@
+.root_package.json
 /vendor/
 /src/Dflydev/EmbeddedComposer/*/vendor/
 composer.lock
