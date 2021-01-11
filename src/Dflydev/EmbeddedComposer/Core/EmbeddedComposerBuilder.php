@@ -48,8 +48,7 @@ class EmbeddedComposerBuilder
 
         $obj = new \ReflectionClass($classLoader);
         $this->internalVendorDirectory = dirname(dirname($obj->getFileName()));
-        $this->internalVendorDirectory = str_replace('.phar/.box', '.phar', $this->internalVendorDirectory);
-        
+        $this->internalVendorDirectory = str_replace('/.box/', '/', $this->internalVendorDirectory);
 
         if (0 === strpos($this->internalVendorDirectory, 'phar://') ||
             false === strpos($this->internalVendorDirectory, $this->externalRootDirectory)) {
