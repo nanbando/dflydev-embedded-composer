@@ -12,8 +12,10 @@
 namespace Dflydev\EmbeddedComposer\Core;
 
 use Composer\Autoload\ClassLoader;
+use Composer\Composer;
 use Composer\Config;
 use Composer\Factory;
+use Composer\Installer;
 use Composer\IO\IOInterface;
 use Composer\Package\AliasPackage;
 use Composer\Repository\RepositoryInterface;
@@ -145,9 +147,9 @@ class EmbeddedComposer implements EmbeddedComposerInterface
     /**
      * {@inheritdoc}
      */
-    public function createInstaller(IOInterface $io)
+    public function createInstaller(IOInterface $io, ?Composer $composer = null)
     {
-        $composer = $this->createComposer($io);
+        $composer = $composer ?: $this->createComposer($io);
         $installer = Installer::create($io, $composer);
 
         if ($this->hasInternalRepository) {

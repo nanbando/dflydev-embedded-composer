@@ -16,6 +16,7 @@ use Composer\Config;
 use Composer\Factory;
 use Composer\Json\JsonFile;
 use Composer\Repository\CompositeRepository;
+use Composer\Repository\FilterRepository;
 use Composer\Repository\InstalledFilesystemRepository;
 use Seld\JsonLint\ParsingException;
 
@@ -187,7 +188,7 @@ class EmbeddedComposerBuilder
                 )
             );
 
-            $internalRepository->addRepository($internalInstalledRepository);
+            $internalRepository->addRepository(new FilterRepository($internalInstalledRepository, []));
         }
 
         $rootPackageFilename = $this->internalVendorDirectory.'/dflydev/embedded-composer/.root_package.json';
@@ -196,7 +197,7 @@ class EmbeddedComposerBuilder
                 new JsonFile($rootPackageFilename)
             );
 
-            $internalRepository->addRepository($rootPackageRepository);
+            $internalRepository->addRepository(new FilterRepository($rootPackageRepository, []));
         }
 
 
