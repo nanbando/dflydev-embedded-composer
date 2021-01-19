@@ -11,6 +11,7 @@
 
 namespace Dflydev\EmbeddedComposer\Core;
 
+use Composer\Installer\InstallationManager;
 use Composer\Json\JsonFile;
 use Composer\Repository\InstalledFilesystemRepository;
 use Composer\Script\Event;
@@ -33,6 +34,6 @@ class Script
         $jsonFile = new JsonFile($filename);
         $repository = new InstalledFilesystemRepository($jsonFile);
         $repository->addPackage(clone $package);
-        $repository->write();
+        $repository->write(false, $composer->getInstallationManager());
     }
 }

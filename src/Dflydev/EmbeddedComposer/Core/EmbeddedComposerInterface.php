@@ -11,6 +11,7 @@
 
 namespace Dflydev\EmbeddedComposer\Core;
 
+use Composer\Composer;
 use Composer\Installer;
 use Composer\IO\IOInterface;
 
@@ -56,7 +57,7 @@ interface EmbeddedComposerInterface
      *
      * @param IOInterface $io
      */
-    public function createInstaller(IOInterface $io);
+    public function createInstaller(IOInterface $io, ?Composer $composer = null);
 
     /**
      * Get a repository repository representing the external repository and
