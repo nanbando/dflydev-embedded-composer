@@ -1,5 +1,5 @@
 {
-    "name": "dflydev/embedded-composer",
+    "name": "nanbando/embedded-composer",
     "description": "Embed Composer into another application",
     "keywords": ["embedded", "composer", "extensibility"],
     "license": "MIT",
